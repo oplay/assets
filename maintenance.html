@@ -1,12 +1,11 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
 	<title>Ultiplays - Temporary maintenance</title>
-	<meta name="description" content="Free tool for creating and sharing Ultimate Frisbee drills. Animated playbook for Ultimate Frisbee teams and coaches.">
+	<meta name="description" content="Ultiplays is temporarily under maintenance. We'll be back soon!">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="/">
-	<link href='https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="/favicon.ico">
 	<link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
 	<link rel="apple-touch-icon" href="/favicon-57.png">
@@ -20,145 +19,340 @@
 		});
 	</script>
 	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
 		body {
-			color: #ddd;
-			margin:0;
-			background-color:#545447;
-			text-align: center;color: white;
-			font-family: 'Merriweather Sans',sans-serif;
-			font-weight: bold;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			color: #fff;
+			overflow-x: hidden;
 		}
-		.body-bg {
-			position: fixed;
-			left: 0; right: 0; top: 0;
-			height: 100%;
+
+		/* Header */
+		header {
+			background: rgba(255, 255, 255, 0.95);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+			position: sticky;
+			top: 0;
+			z-index: 50;
+			box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+		}
+
+		.header-container {
+			max-width: 1280px;
+			margin: 0 auto;
+			padding: 0.375rem 1rem;
+		}
+
+		.header-content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.logo-container {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.logo-icon {
+			width: 24px;
+			height: 24px;
+			background: rgb(37, 99, 235);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+		}
+
+		.logo-icon svg {
+			width: 12px;
+			height: 12px;
+			fill: hsl(210, 40%, 98%);
+		}
+
+		.logo-text {
+			font-size: 1.125rem;
+			font-weight: 700;
+			background: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(158, 64%, 52%) 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		/* Hero Section */
+		.hero-section {
+			position: relative;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			background: #000;
+		}
+
+		/* Background Videos */
+		.video-container {
+			position: absolute;
+			inset: 0;
 			width: 100%;
-			background: url('assets/gfx/site/nova89.jpg') no-repeat;
-			background-size: cover !important;
-			z-index: -1;
-			font-size: 16px;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		.hero-video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.hero-video.desktop {
+			display: none;
+		}
+
+		@media (min-width: 768px) {
+			.hero-video.desktop {
+				display: block;
+			}
+			.hero-video.mobile {
+				display: none;
+			}
+		}
+
+		/* Hero Overlay */
+		.hero-overlay {
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(16, 185, 129, 0.6) 100%);
+			z-index: 1;
+		}
+
+		/* Hero Content */
+		.hero-content {
+			position: relative;
+			z-index: 10;
+			padding: 2rem 1rem;
+			max-width: 1152px;
+			margin: 0 auto;
+			width: 100%;
+			text-align: center;
+		}
+
+		.main-title {
+			font-size: 2.25rem;
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 2rem;
+			line-height: 1.2;
+		}
+
+		@media (min-width: 640px) {
+			.main-title {
+				font-size: 3rem;
+			}
+		}
+
+		@media (min-width: 768px) {
+			.main-title {
+				font-size: 4.5rem;
+				margin-bottom: 3rem;
+			}
+		}
+
+		.maintenance-message {
+			font-size: 1.125rem;
+			color: rgba(255, 255, 255, 0.9);
+			margin-bottom: 1.5rem;
 			line-height: 1.6;
-			-webkit-font-smoothing: antialiased; text-rendering: optimizelegibility;
 		}
-		.body-bg::before {
-			content: '';
-			background: rgba(95, 95, 95, 0.8);
-			width: 100%;
-			height: 100%;
-			top: 0; left: 0;
-			position: absolute;
-			z-index: 0;
+
+		@media (min-width: 640px) {
+			.maintenance-message {
+				font-size: 1.25rem;
+			}
 		}
-		.logo {
-			position: absolute;
-		    top: 10px;
-		    left: 32px;
-		    font-size: 16px;
-		    color: #fff;
-		    text-transform: uppercase;
-		    text-decoration: none;
-		    font-weight: normal;
+
+		@media (min-width: 768px) {
+			.maintenance-message {
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+			}
 		}
+
+		.sub-message {
+			font-size: 1rem;
+			color: rgba(255, 255, 255, 0.7);
+			line-height: 1.6;
+		}
+
+		@media (min-width: 640px) {
+			.sub-message {
+				font-size: 1.125rem;
+			}
+		}
+
+		/* Loading Animation */
+		.loading-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 3rem;
+		}
+
 		.sk-folding-cube {
-		  margin: 50px auto;
-		  width: 40px;
-		  height: 40px;
-		  position: relative;
-		  -webkit-transform: rotateZ(45deg);
-		          transform: rotateZ(45deg);
+			margin: 0 auto;
+			width: 40px;
+			height: 40px;
+			position: relative;
+			transform: rotateZ(45deg);
 		}
 
 		.sk-folding-cube .sk-cube {
-		  float: left;
-		  width: 50%;
-		  height: 50%;
-		  position: relative;
-		  -webkit-transform: scale(1.1);
-		      -ms-transform: scale(1.1);
-		          transform: scale(1.1); 
+			float: left;
+			width: 50%;
+			height: 50%;
+			position: relative;
+			transform: scale(1.1);
 		}
+
 		.sk-folding-cube .sk-cube:before {
-		  content: '';
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 100%;
-		  background-color: #fff;
-		  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
-		          animation: sk-foldCubeAngle 2.4s infinite linear both;
-		  -webkit-transform-origin: 100% 100%;
-		      -ms-transform-origin: 100% 100%;
-		          transform-origin: 100% 100%;
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+			animation: sk-foldCubeAngle 2.4s infinite linear both;
+			transform-origin: 100% 100%;
 		}
+
 		.sk-folding-cube .sk-cube2 {
-		  -webkit-transform: scale(1.1) rotateZ(90deg);
-		          transform: scale(1.1) rotateZ(90deg);
+			transform: scale(1.1) rotateZ(90deg);
 		}
+
 		.sk-folding-cube .sk-cube3 {
-		  -webkit-transform: scale(1.1) rotateZ(180deg);
-		          transform: scale(1.1) rotateZ(180deg);
+			transform: scale(1.1) rotateZ(180deg);
 		}
+
 		.sk-folding-cube .sk-cube4 {
-		  -webkit-transform: scale(1.1) rotateZ(270deg);
-		          transform: scale(1.1) rotateZ(270deg);
+			transform: scale(1.1) rotateZ(270deg);
 		}
+
 		.sk-folding-cube .sk-cube2:before {
-		  -webkit-animation-delay: 0.3s;
-		          animation-delay: 0.3s;
+			animation-delay: 0.3s;
 		}
+
 		.sk-folding-cube .sk-cube3:before {
-		  -webkit-animation-delay: 0.6s;
-		          animation-delay: 0.6s; 
+			animation-delay: 0.6s;
 		}
+
 		.sk-folding-cube .sk-cube4:before {
-		  -webkit-animation-delay: 0.9s;
-		          animation-delay: 0.9s;
-		}
-		@-webkit-keyframes sk-foldCubeAngle {
-		  0%, 10% {
-		    -webkit-transform: perspective(140px) rotateX(-180deg);
-		            transform: perspective(140px) rotateX(-180deg);
-		    opacity: 0; 
-		  } 25%, 75% {
-		    -webkit-transform: perspective(140px) rotateX(0deg);
-		            transform: perspective(140px) rotateX(0deg);
-		    opacity: 1; 
-		  } 90%, 100% {
-		    -webkit-transform: perspective(140px) rotateY(180deg);
-		            transform: perspective(140px) rotateY(180deg);
-		    opacity: 0; 
-		  } 
+			animation-delay: 0.9s;
 		}
 
 		@keyframes sk-foldCubeAngle {
-		  0%, 10% {
-		    -webkit-transform: perspective(140px) rotateX(-180deg);
-		            transform: perspective(140px) rotateX(-180deg);
-		    opacity: 0; 
-		  } 25%, 75% {
-		    -webkit-transform: perspective(140px) rotateX(0deg);
-		            transform: perspective(140px) rotateX(0deg);
-		    opacity: 1; 
-		  } 90%, 100% {
-		    -webkit-transform: perspective(140px) rotateY(180deg);
-		            transform: perspective(140px) rotateY(180deg);
-		    opacity: 0; 
-		  }
+			0%, 10% {
+				transform: perspective(140px) rotateX(-180deg);
+				opacity: 0;
+			}
+			25%, 75% {
+				transform: perspective(140px) rotateX(0deg);
+				opacity: 1;
+			}
+			90%, 100% {
+				transform: perspective(140px) rotateY(180deg);
+				opacity: 0;
+			}
 		}
 	</style>
 </head>
 <body>
-	<div class="body-bg"></div>
-	<a class="logo" href="/">Ultiplays</a>
-	<div style="margin-top: 150px;font-size: 58px;color: #7EF36C;">Ultimate Frisbee plays</div>
-	<div style="margin-top: 50px;font-size: 20px;text-transform: uppercase;">We are currently upgrading the servers, site should be back in 30 min. Apologies for the inconvenience!</div>
+	<header>
+		<div class="header-container">
+			<div class="header-content">
+				<a href="/" class="logo-container">
+					<div class="logo-icon">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M8 5v14l11-7z"/>
+						</svg>
+					</div>
+					<span class="logo-text">Ultiplays</span>
+				</a>
+			</div>
+		</div>
+	</header>
 
-	<div class="sk-folding-cube">
-	  <div class="sk-cube1 sk-cube"></div>
-	  <div class="sk-cube2 sk-cube"></div>
-	  <div class="sk-cube4 sk-cube"></div>
-	  <div class="sk-cube3 sk-cube"></div>
-	</div>
+	<section class="hero-section">
+		<!-- Background Videos -->
+		<div class="video-container">
+			<!-- Desktop Video -->
+			<video
+				class="hero-video desktop"
+				autoplay
+				loop
+				muted
+				playsinline
+				poster="https://d23ointjv6bvc4.cloudfront.net/assets/images/landing_desktop_poster_v2.jpg"
+				aria-hidden="true"
+			>
+				<source src="https://d23ointjv6bvc4.cloudfront.net/assets/videos/landing_desktop_optimized.webm" type="video/webm" />
+				<source src="https://d23ointjv6bvc4.cloudfront.net/assets/videos/landing_desktop_optimized.mp4" type="video/mp4" />
+			</video>
+
+			<!-- Mobile Video -->
+			<video
+				class="hero-video mobile"
+				autoplay
+				loop
+				muted
+				playsinline
+				poster="https://d23ointjv6bvc4.cloudfront.net/assets/images/landing_mobile_poster_v2.jpg"
+				aria-hidden="true"
+			>
+				<source src="https://d23ointjv6bvc4.cloudfront.net/assets/videos/landing_mobile_optimized.webm" type="video/webm" />
+				<source src="https://d23ointjv6bvc4.cloudfront.net/assets/videos/landing_mobile_optimized.mp4" type="video/mp4" />
+			</video>
+		</div>
+
+		<!-- Hero Overlay -->
+		<div class="hero-overlay"></div>
+
+		<!-- Hero Content -->
+		<div class="hero-content">
+			<h1 class="main-title">
+				TEMPORARY MAINTENANCE
+			</h1>
+			<p class="maintenance-message">
+				We are currently upgrading our servers to serve you better.
+			</p>
+			<p class="sub-message">
+				The site should be back shortly. Thank you for your patience!
+			</p>
+			<div class="loading-container">
+				<div class="sk-folding-cube">
+					<div class="sk-cube1 sk-cube"></div>
+					<div class="sk-cube2 sk-cube"></div>
+					<div class="sk-cube4 sk-cube"></div>
+					<div class="sk-cube3 sk-cube"></div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>
+
